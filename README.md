@@ -1,4 +1,6 @@
-# Linux automated server configuration - An Udacity FSND Project
+# Automated Ubuntu v18.04 server configuration
+
+## A Project by [Mathias](https://www.linkedin.com/in/mathias-kandelsdorff/)
 
 By following this guide, you'll to get a secure Ubuntu 18.04 server running and ready for use. This can be done from any environment.
 
