@@ -1,4 +1,4 @@
-# Automated Ubuntu v18.04 server configuration
+# Automated Ubuntu server configuration
 
 ## A Project by [Mathias](https://www.linkedin.com/in/mathias-kandelsdorff/)
 
