@@ -1,0 +1,24 @@
+#cloud-config
+users:
+  - name: admin
+    shell: /bin/bash
+    groups: sudo
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - MY-NEW-server_id.pub
+runcmd:
+ - sed -i -e '/^#Port 22/s/^.*$/Port 2222/' /etc/ssh/sshd_config
+ - sed -i -e '/^PermitRootLogin/s/^.*$/PermitRootLogin no/' /etc/ssh/sshd_config
+ - sed -i -e '$aAllowUsers admin' /etc/ssh/sshd_config
+ - systemctl restart ssh
+ - ufw default deny incoming
+ - ufw default allow outgoing
+ - ufw allow 2222/tcp
+ - ufw allow www
+ - ufw allow https
+ - ufw allow http
+ - ufw allow ntp
+ - timedatectl set-timezone UTC
+ - yes | ufw enable # Should always be last 
+power_state:
+ mode: reboot
